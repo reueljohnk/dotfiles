@@ -60,6 +60,19 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  colored-man-pages
+  zsh-syntax-highlighting
+  zsh-autosuggestions 
+  archlinux
+  bgnotify
+  chucknorris
+  copybuffer
+  copydir
+  copyfile
+  fancy-ctrl-z
+  ssh-agent
+  vi-mode
+  zsh_reload
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 alias i3c="vim ~/.config/i3/config"
 alias red="redshift-gtk -l 11.414299:76.866331"
 alias i3bc="vim ~/.i3blocks.conf"
-
+alias zc="vim ~/.zshrc"
 
 neofetch
 fortune
