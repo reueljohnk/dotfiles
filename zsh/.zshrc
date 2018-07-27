@@ -92,7 +92,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias i3rc="vim ~/.config/i3/config"
+alias i3c="vim ~/.config/i3/config"
+alias red="redshift-gtk -l 11.414299:76.866331"
+alias i3bc="vim ~/.i3blocks.conf"
+
 
 neofetch
 fortune
