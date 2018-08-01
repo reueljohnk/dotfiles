@@ -36,7 +36,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -73,6 +73,7 @@ plugins=(
   ssh-agent
   vi-mode
   zsh_reload
+  alias-tips
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,6 +110,6 @@ alias i3c="vim ~/.config/i3/config"
 alias red="redshift-gtk -l 11.414299:76.866331"
 alias i3bc="vim ~/.i3blocks.conf"
 alias zc="vim ~/.zshrc"
-
+(cat ~/.cache/wal/sequences &)
 neofetch
 fortune

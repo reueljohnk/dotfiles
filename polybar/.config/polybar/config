@@ -1,0 +1,189 @@
+[colors]
+background = #212020
+;bar colour
+background-alt = #f21010
+;highlighted
+foreground = #f3f4f5 
+;text
+foreground-alt = #6a6a6a
+primary = #f21010
+secondary = #52b030
+alert = #a54242
+
+[bar/top]
+radius = 5
+border-size = 10
+border-color = #00000000
+width = 100%
+height = 25
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #a7adba
+
+padding-left = 1
+padding-right = 1
+padding-top = 1
+
+module-margin-left = 3
+module-margin-right = 1
+
+font-0= Product Sans:pixelsize=10;1
+font-1 = "Material Design Icons:size=12;1"
+font-2= FontAwesome:size=12
+;font-2 = "font\-logos:size=11;1"
+font-3 = fixed:pixelsize=10;1
+
+
+modules-left = xworkspaces mpd
+modules-center = spotify
+modules-right = volume date battery-combined-udev wired-network wireless-network
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+wm-restack = i3
+override-redirect = false
+
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = ""
+format = <label>
+exec = python /home/reueljohn/Arch/polybar-spotify/spotify_status.py -t 100
+format-underline = ${colors.primary}
+
+[module/battery-combined-udev]
+type = custom/script
+format-underline = ${colors.primary}
+exec = ~/.config/polybar/battery-combined-udev.sh
+tail = true
+
+[module/updates-arch]
+type = custom/script
+exec = ~/.config/polybar/updates-arch-combined.sh
+interval = 600
+
+[module/wired-network]
+type = internal/network
+interface = enp1s0
+label-disconnected =
+label-disconnected-foreground = ${colors.foreground-alt}
+format-underline = ${colors.primary}
+
+label-connected =  %local_ip%
+label-connected-underline = ${colors.secondary}
+
+[module/wireless-network]
+type = internal/network 
+interface = wlp2s0
+
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.foreground-alt}
+
+label-connected =  %essid%
+
+[module/title]
+type = internal/xwindow
+label =  %title% 
+label-maxlen = 50
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-padding = 2
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <toggle> <icon-next> <label-song>
+label-maxlen = 30
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+[module/xworkspaces]
+type = internal/xworkspaces
+icon-0 = 1:  Home;
+icon-1 = 2:  Firefox;
+icon-2 = 10:  Spotify;
+icon-default = 
+
+format = <label-state>
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = false
+
+; focused = Active workspace on focused monitor
+label-active = %icon%
+label-active-foreground = ${colors.foreground}
+label-active-background = ${colors.background-alt}
+label-active-padding = 2
+
+; occupied = Inactive workspace on any monitor
+label-occupied = %icon%
+label-occupied-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = 
+date-alt = "%Y-%m-%d"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-underline = ${colors.primary}
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume>
+label-volume =  %percentage%%
+format-underline = ${colors.primary}
+format-muted-foreground = ${colors.foreground-alt}
+label-muted =  muted
+
+ 
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
