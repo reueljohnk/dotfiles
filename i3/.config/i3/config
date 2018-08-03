@@ -220,11 +220,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 bindsym $mod+shift+x exec betterlockscreen -l
 
 
-exec_always feh --bg-scale /home/reueljohn/Arch/Wallpapers/wallpaper.jpg
-exec compton
-exec thunar --daemon
+exec_always --no-startup-id feh --bg-scale /home/reueljohn/Arch/Wallpapers/wallpaper.jpg
+exec --no-startup-id compton
+exec --no-startup-id thunar --daemon
 #exec ~/.config/scripts/polybarstart
 exec --no-startup-id nm-applet
 #exec_always conky -c ~/.conky/Gotham/Gotham 
 exec --no-startup-id dunst
-exec_always /home/reueljohn/.config/polybar/polybarstart
+exec_always --no-startup-id /home/reueljohn/.config/polybar/polybarstart
