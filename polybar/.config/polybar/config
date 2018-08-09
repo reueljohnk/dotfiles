@@ -40,7 +40,7 @@ font-3 = fixed:pixelsize=10;1
 
 modules-left = xworkspaces mpd
 modules-center = spotify
-modules-right =  info-redshift-temp volume date battery-combined-udev wired-network wireless-network
+modules-right = volume date battery-combined-udev wired-network wireless-network
 
 tray-position =right
 tray-maxsize = 20
@@ -96,7 +96,7 @@ interface = wlp2s0
 label-disconnected = 
 label-disconnected-foreground = ${colors.foreground-alt}
 
-label-connected =  %essid%
+label-connected =  %essid%
 
 [module/title]
 type = internal/xwindow
