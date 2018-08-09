@@ -1,9 +1,9 @@
 [colors]
-background = #212020
+background =#eff1f5 
 ;bar colour
-background-alt = #f21010
+background-alt =#0e5af2 
 ;highlighted
-foreground = #f3f4f5 
+foreground =#2b303b 
 ;text
 foreground-alt = #6a6a6a
 primary = #f21010
@@ -28,23 +28,24 @@ padding-left = 1
 padding-right = 1
 padding-top = 1
 
-module-margin-left = 3
+module-margin-left = 2
 module-margin-right = 1
 
-font-0= Product Sans:pixelsize=10;1
+;font-0= Product Sans:pixelsize=10;1
+font-0 = "M+ 1mn:size=8;0"
 font-1 = "Material Design Icons:size=10;1"
-font-2= Weather Icons:size=10;1
+font-2= Weather Icons:size=8;1
 ;font-2 = "font\-logos:size=11;1"
-font-3 = fixed:pixelsize=10;1
+font-3 = fixed:pixelsize=8;1
 
 
-modules-left = xworkspaces title
-modules-center = 
-modules-right = filesystem cpu openweathermap-detailed updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
+modules-left = xworkspaces 
+modules-center = info-kernel 
+modules-right = filesystem cpu updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
 
-tray-position =right
-tray-maxsize = 30
-tray-scale =1.0
+;tray-position =right
+;tray-maxsize = 30
+;tray-scale =1.0
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -59,6 +60,28 @@ label-maxlen = 50
 format-background = ${colors.background-alt}
 format-foreground = ${colors.foreground}
 format-padding = 2
+
+[module/spotify]
+type = custom/script
+interval = 1
+;format-prefix = " "
+format = <label>
+exec = python /home/reueljohn/.config/polybar/spotify_status.py -f '{artist}: {song}' 
+format-underline = ${colors.background-alt} 
+
+[module/openweathermap-simple]
+type = custom/script
+exec =/home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/openweathermap-simple/openweathermap-simple.sh 
+interval = 600
+label-font = 3
+format-underline = ${colors.background-alt}
+
+[module/info-kernel]
+type = custom/script
+exec = uname -r
+format-prefix = "  "
+format-underline = ${colors.background-alt}
+interval = 1024
 
 [module/cpu]
 type = internal/cpu
@@ -77,7 +100,7 @@ format-underline = ${colors.background-alt}
 ;   %percentage% (default) - total cpu load
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
-label =   %percentage%%
+label =  %percentage%%
 
 [module/openweathermap-detailed]
 type = custom/script
@@ -129,7 +152,7 @@ interval = 5
 ;   <label-volume> (default)
 ;   <ramp-volume>
 ;   <bar-volume>
-format-volume =   <label-volume>
+format-volume =  <label-volume>
 ; Available tags:
 ;   <label-muted> (default)
 ;   <ramp-volume>
@@ -164,20 +187,21 @@ format-connected-underline = ${colors.background-alt}
 type = internal/network 
 interface = wlp2s0
 label-disconnected-foreground = ${colors.foreground-alt}
-label-connected = %essid%
+label-connected = %essid% 
+label-disconnected = 
 format-connected-underline = ${colors.background-alt}
 
 [module/battery-combined-shell]
 type = custom/script
 exec = /home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/battery-combined-shell/battery-combined-shell.sh
-interval = 10
+interval = 1
 format-underline = ${colors.background-alt}
 
 [module/xworkspaces]
 type = internal/xworkspaces
 icon-0 = 1:  Home;
 icon-1 = 2:  Firefox;
-icon-2 = 10:  Spotify;
+icon-2 = 10:  Spotify;
 icon-default = 
 
 format = <label-state>
