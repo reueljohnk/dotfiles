@@ -32,18 +32,18 @@ module-margin-left = 3
 module-margin-right = 1
 
 font-0= Product Sans:pixelsize=10;1
-font-1 = "Material Design Icons:size=12;1"
-font-2= FontAwesome:size=12
+font-1 = "Material Design Icons:size=10;1"
+font-2= Weather Icons:size=10;1
 ;font-2 = "font\-logos:size=11;1"
 font-3 = fixed:pixelsize=10;1
 
 
-modules-left = xworkspaces mpd
-modules-center = spotify
-modules-right = volume date battery-combined-udev wired-network wireless-network
+modules-left = xworkspaces title
+modules-center = 
+modules-right = filesystem cpu openweathermap-detailed updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
 
 tray-position =right
-tray-maxsize = 20
+tray-maxsize = 30
 tray-scale =1.0
 
 cursor-click = pointer
@@ -51,52 +51,6 @@ cursor-scroll = ns-resize
 
 wm-restack = i3
 override-redirect = false
-
-[module/info-redshift-temp]
-type = custom/script
-exec = ~/.config/polybar/info-redshift-temp.sh
-interval = 5 
-
-
-
-[module/spotify]
-type = custom/script
-interval = 1
-format-prefix = ""
-format = <label>
-exec = python /home/reueljohn/Arch/polybar-spotify/spotify_status.py -t 100
-format-underline = ${colors.primary}
-
-[module/battery-combined-udev]
-type = custom/script
-format-underline = ${colors.primary}
-exec = ~/.config/polybar/battery-combined-udev.sh
-tail = true
-
-[module/updates-arch]
-type = custom/script
-exec = ~/.config/polybar/updates-arch-combined.sh
-interval = 600
-
-[module/wired-network]
-type = internal/network
-interface = enp1s0
-label-disconnected =
-label-disconnected-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
-
-label-connected =  %local_ip%
-label-connected-underline = ${colors.secondary}
-
-[module/wireless-network]
-type = internal/network 
-interface = wlp2s0
-
-
-label-disconnected = 
-label-disconnected-foreground = ${colors.foreground-alt}
-
-label-connected =  %essid%
 
 [module/title]
 type = internal/xwindow
@@ -106,28 +60,118 @@ format-background = ${colors.background-alt}
 format-foreground = ${colors.foreground}
 format-padding = 2
 
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <toggle> <icon-next> <label-song>
-label-maxlen = 30
+[module/cpu]
+type = internal/cpu
 
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-
-bar-progress-width = 10
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
-
-host = 127.0.0.1
-port = 6600
-
-; Seconds to sleep between progressbar/song timer sync
+; Seconds to sleep between updates
 ; Default: 1
-interval = 2
+interval = 10
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label> 
+format-underline = ${colors.background-alt}
+; Available tokens:
+;   %percentage% (default) - total cpu load
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label =   %percentage%%
+
+[module/openweathermap-detailed]
+type = custom/script
+exec = /home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/openweathermap-detailed/openweathermap-detailed.sh
+interval = 600
+label-font = 3
+format-underline = ${colors.background-alt}
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0= /home
+
+; Seconds to sleep between updates
+; Default: 30
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+label-mounted = %free% 
+; Spacing between entries
+; Default: 2
+spacing = 4
+format-mounted-underline = ${colors.background-alt}
+
+[module/updates-arch-combined]
+type = custom/script
+exec = /home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/updates-arch-combined/updates-arch-combined.sh
+interval = 600
+format-underline = ${colors.background-alt}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points) (unreleased)
+; Default: 5
+interval = 5
+
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume =   <label-volume>
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+; Available tokens:
+;   %percentage% (default)
+;label-volume = %percentage%%
+
+; Available tokens:
+;   %percentage% (default)
+label-muted = 🔇 muted
+label-muted-foreground = #666
+format-volume-underline = ${colors.background-alt}
+
+[module/popup-calendar]
+type = custom/script
+exec = /home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/popup-calendar/popup-calendar.sh
+interval = 5
+click-left = ~/polybar-scripts/popup-calendar.sh --popup
+format-underline = ${colors.background-alt}
+
+[module/wired-network]
+type = internal/network
+interface = enp1s0
+label-disconnected-foreground = ${colors.foreground-alt}
+label-connected =  %local_ip%
+format-connected-underline = ${colors.background-alt}
+
+[module/wireless-network]
+type = internal/network 
+interface = wlp2s0
+label-disconnected-foreground = ${colors.foreground-alt}
+label-connected = %essid%
+format-connected-underline = ${colors.background-alt}
+
+[module/battery-combined-shell]
+type = custom/script
+exec = /home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/battery-combined-shell/battery-combined-shell.sh
+interval = 10
+format-underline = ${colors.background-alt}
 
 [module/xworkspaces]
 type = internal/xworkspaces
@@ -159,31 +203,6 @@ label-urgent-padding = 2
 label-empty = %icon%
 label-empty-foreground = ${colors.foreground}
 label-empty-padding = 2
-
-[module/date]
-type = internal/date
-interval = 5
-
-date = 
-date-alt = "%Y-%m-%d"
-
-time = %H:%M
-time-alt = %H:%M:%S
-
-format-underline = ${colors.primary}
-
-label = %date% %time%
-
-[module/volume]
-type = internal/volume
-
-format-volume = <label-volume>
-label-volume =  %percentage%%
-format-underline = ${colors.primary}
-format-muted-foreground = ${colors.foreground-alt}
-label-muted =  muted
-
- 
 
 [settings]
 screenchange-reload = true
