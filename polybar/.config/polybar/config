@@ -39,7 +39,7 @@ font-2= Weather Icons:size=8;1
 font-3 = fixed:pixelsize=8;1
 
 
-modules-left = xworkspaces 
+modules-left = xworkspaces mpd
 modules-center = info-kernel 
 modules-right = filesystem cpu updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
 
@@ -68,6 +68,29 @@ interval = 1
 format = <label>
 exec = python /home/reueljohn/.config/polybar/spotify_status.py -f '{artist}: {song}' 
 format-underline = ${colors.background-alt} 
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <toggle> <icon-next> <label-song>
+label-maxlen = 30
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
 
 [module/openweathermap-simple]
 type = custom/script

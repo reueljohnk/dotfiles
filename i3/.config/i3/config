@@ -209,9 +209,9 @@ gaps inner 25
 gaps outer 5
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec amixer set Master 2+
-bindsym XF86AudioLowerVolume exec amixer set Master 2-
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
+bindsym XF86AudioMute exec amixer set Master toggle;
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -227,8 +227,8 @@ bindsym $mod+shift+x exec betterlockscreen -l
 exec_always --no-startup-id feh --bg-scale /home/reueljohn/Arch/Wallpapers/wallpaper.jpg
 exec --no-startup-id compton
 exec --no-startup-id thunar --daemon
-#exec ~/.config/scripts/polybarstart
 exec --no-startup-id nm-applet
 #exec_always conky -c ~/.conky/Gotham/Gotham 
 exec --no-startup-id dunst
 exec_always --no-startup-id /home/reueljohn/.config/polybar/polybarstart
+exec --no-startup-id mpd
