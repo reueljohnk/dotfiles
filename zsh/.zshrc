@@ -112,3 +112,5 @@ alias i3c="vim ~/.config/i3/config"
 alias red="redshift-gtk -l 11.414299:76.866331"
 alias i3bc="vim ~/.i3blocks.conf"
 alias zc="vim ~/.zshrc"
+
+neofetch
