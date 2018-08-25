@@ -227,7 +227,7 @@ bindsym $mod+shift+x exec betterlockscreen -l
 exec_always --no-startup-id feh --bg-scale /home/reueljohn/Arch/Wallpapers/wallpaper.jpg
 exec --no-startup-id compton
 exec --no-startup-id thunar --daemon
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 #exec_always conky -c ~/.conky/Gotham/Gotham 
 exec --no-startup-id dunst
 exec_always --no-startup-id /home/reueljohn/.config/polybar/polybarstart
