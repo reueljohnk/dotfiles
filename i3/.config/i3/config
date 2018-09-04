@@ -42,7 +42,7 @@ bindsym $mod+d exec rofi -show drun -theme chrome
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 #Pipe the locate command into rofi for a spotlight type deep search 
-bindsym $mod+s exec mimeopen -n $(locate home | rofi -theme chrome -dmenu -i -p "locate:")
+bindsym $mod+s exec ~/.config/scripts/deepSearch.sh
 
 # change focus
 bindsym $mod+j focus left
