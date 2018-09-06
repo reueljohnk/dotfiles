@@ -1,3 +1,3 @@
 #! /bin/bash
-locate home | rofi -theme chrome -dmenu -i -p "locate:"| xargs -r -0 xdg-open
+locate /home/reueljohn | rofi -theme chrome -dmenu -i -p "Search"| xargs -r -0 xdg-open
 
