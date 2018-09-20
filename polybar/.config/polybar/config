@@ -83,7 +83,7 @@ icon-next = 
 bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = ─
-bar-progress-empty = ─
+S
 
 host = 127.0.0.1
 port = 6600
