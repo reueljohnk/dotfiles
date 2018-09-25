@@ -217,7 +217,7 @@ format-connected-underline = ${colors.background-alt}
 [module/battery-combined-shell]
 type = custom/script
 exec = /home/reueljohn/.config/polybar/polybar-scripts/polybar-scripts/battery-combined-shell/battery-combined-shell.sh
-interval = 1
+interval = 180
 format-underline = ${colors.background-alt}
 
 [module/xworkspaces]
