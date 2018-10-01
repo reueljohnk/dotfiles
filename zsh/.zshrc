@@ -113,5 +113,6 @@ alias red="redshift-gtk -l 11.414299:76.866331"
 alias i3bc="vim ~/.i3blocks.conf"
 alias zc="vim ~/.zshrc"
 alias CC= "cd ~/Ashoka\ University/SEMESTER\ 3/Advanced\ Programming/Intro\ to\ C" 
+alias pbc="vim dotfiles/polybar/.config/polybar/config"
 
 neofetch

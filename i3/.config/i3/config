@@ -177,7 +177,7 @@ set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
-set $indicator		 #0e5af2
+set $indicator		 #f4eff1
 set $highlight		 #0e5af2
 
 # window colors
@@ -225,11 +225,35 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightnes
 # Lock the screen
 bindsym $mod+shift+x exec betterlockscreen -l
 
+#POWEROFF MENU
+
+set $Locker betterlockscreen -l
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#bindsym $mod+q mode "$mode_system"
+#
+#
+#STARTUP APPLICATIONS
 exec_always --no-startup-id feh --bg-scale /home/reueljohn/Arch/Wallpapers/wallpaper.jpg
 exec --no-startup-id compton
 exec --no-startup-id thunar --daemon
 #exec --no-startup-id nm-applet
 #exec_always conky -c ~/.conky/Gotham/Gotham 
-exec --no-startup-id dunst
+exec_always --no-startup-id dunst
 exec_always --no-startup-id /home/reueljohn/.config/polybar/polybarstart
 exec --no-startup-id mpd
+exec --no-startup-id spotify
+exec --no-startup-id firefox
