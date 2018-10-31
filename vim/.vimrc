@@ -1,4 +1,4 @@
-filetype off                  
+filetype on                  
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -9,9 +9,14 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'scrooloose/nerdtree'
+
 " All of your Plugins must be added before the following line
+
+"Keymaps
+map <C-n> :NERDTreeToggle<CR>
+
  
 call vundle#end()            
 filetype plugin indent on    
