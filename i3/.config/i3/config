@@ -253,6 +253,3 @@ exec --no-startup-id thunar --daemon
 exec_always --no-startup-id dunst
 exec_always --no-startup-id /home/reueljohn/.config/polybar/polybarstart
 exec --no-startup-id mpd
-exec --no-startup-id spotify
-exec --no-startup-id opera
-exec --no-startup-id thunderbird
