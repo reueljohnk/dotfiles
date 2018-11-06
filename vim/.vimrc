@@ -7,8 +7,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'scrooloose/nerdtree'
 
