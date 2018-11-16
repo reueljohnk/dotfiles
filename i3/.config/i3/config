@@ -210,7 +210,9 @@ gaps outer 5
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-bindsym XF86AudioMute exec amixer set Master toggle
+#bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
+
 #bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
@@ -227,25 +229,6 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2 # decrease screen brightnes
 # Lock the screen
 bindsym $mod+shift+x exec betterlockscreen -l
 
-#POWEROFF MENU
-
-set $Locker betterlockscreen -l
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-#bindsym $mod+q mode "$mode_system"
 #STARTUP APPLICATIONS
 exec_always --no-startup-id feh --bg-scale /home/reueljohn/Arch/Wallpapers/wallpaper.jpeg
 exec --no-startup-id compton

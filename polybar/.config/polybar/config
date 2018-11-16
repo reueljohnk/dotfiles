@@ -54,7 +54,7 @@ font-3 = fixed:pixelsize=8;1
 
 modules-left = xworkspaces 
 modules-center = info-kernel
-modules-right = filesystem cpu updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
+modules-right = filesystem openweathermap-simple updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
 
 ;tray-position =left
 ;tray-maxsize = 30
