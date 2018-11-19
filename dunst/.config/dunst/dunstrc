@@ -80,7 +80,7 @@ sort = yes
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
 # Set to 0 to disable.
-idle_threshold = 120
+idle_threshold =15 
 
 font = Noto Sans 9
 
@@ -203,7 +203,7 @@ timeout = 7
 background = "#24272e"
 foreground = "#abb2bf"
 frame_color = "#e06c75"
-timeout = 0
+timeout = 7
 
 # Per app rules
 [Spotify]
