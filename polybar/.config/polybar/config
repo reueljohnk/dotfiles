@@ -47,16 +47,16 @@ module-margin-right = 1
 
 ;font-0= Inconsolata :size=8;1
 font-0 = "M+ 1mn:size=8;0"
-font-1 = "Material Design Icons:size=9;1"
+font-1 = "Material Design Icons:size=8;1"
 font-2= Weather Icons:size=8;1
 ;font-2 = "font\-logos:size=11;1"
-font-3 = fixed:pixelsize=8;1
+font-3 = fixed:pixelsize=6;1
 
-modules-left = xworkspaces 
-modules-center = info-kernel
-modules-right = filesystem openweathermap-simple updates-arch-combined popup-calendar pulseaudio battery-combined-shell wired-network wireless-network
+modules-left = openweathermap-simple popup-calendar
+modules-center = xworkspaces
+modules-right = filesystem updates-arch-combined pulseaudio battery-combined-shell wired-network wireless-network
 
-;tray-position =left
+tray-position =right
 ;tray-maxsize = 30
 ;tray-scale =1.0
 
@@ -240,7 +240,7 @@ type = internal/pulseaudio
 
 ; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
 ; If not, uses default sink
-sink = alsa_output.pci-0000_12_00.3.analog-stereo
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
 ; Default: true

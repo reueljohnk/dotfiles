@@ -149,7 +149,7 @@ icon_path = /usr/share/icons/Papirus-Dark/64x64/apps:/usr/share/icons/Papirus-Da
 
 # Should a notification popped up from history be sticky or timeout
 # as if it would normally do.
-sticky_history = yes
+sticky_history = no
 
 # Maximum amount of notifications kept in history
 history_length = 20
@@ -190,23 +190,23 @@ context = ctrl+shift+period
 [urgency_low]
 background = "#24272e"
 foreground = "#abb2bf"
-timeout = 7
+timeout = 1
 
 
 [urgency_normal]
 background = "#24272e"
 foreground = "#abb2bf"
-timeout = 7
+timeout = 1
 
 
 [urgency_critical]
 background = "#24272e"
 foreground = "#abb2bf"
 frame_color = "#e06c75"
-timeout = 7
+timeout = 1
 
 # Per app rules
 [Spotify]
 appname = Spotify
 new_icon = Spotify
-timeout = 7
+timeout = 1

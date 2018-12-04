@@ -9,6 +9,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'scrooloose/nerdtree'
+Plugin 'neoclide/coc.nvim'
 
 " All of your Plugins must be added before the following line
 

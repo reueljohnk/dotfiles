@@ -204,23 +204,16 @@ bindsym Print exec scrot
 for_window [class="^.*"] border pixel 3 
 
 #Gaps
-gaps inner 25
+gaps inner 10
 gaps outer 5
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -10%
-#bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
-
-#bindsym XF86AudioPlay exec playerctl play-pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
-
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-
+bindsym XF86AudioPlay exec playerctl play-pause || exec mpc toggle
+bindsym XF86AudioNext exec playerctl next||exec mpc next 
+bindsym XF86AudioPrev exec playerctl previou||exec mpc prev 
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
