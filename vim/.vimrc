@@ -9,15 +9,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'scrooloose/nerdtree'
-Plugin 'neoclide/coc.nvim'
-
+Plugin 'w0rp/ale'
 " All of your Plugins must be added before the following line
 
 "Keymaps
 map <C-n> :NERDTreeToggle<CR>
 
- 
 call vundle#end()            
+
+ 
 filetype plugin indent on    
 syntax on
 set number
