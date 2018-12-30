@@ -46,8 +46,9 @@ module-margin-left = 2
 module-margin-right = 1
 
 ;font-0= Inconsolata :size=8;1
-font-0 = "M+ 1mn:size=8;0"
-font-1 = "Material Design Icons:size=8;1"
+;font-0 = "M+ 1mn:size=8;0"
+font-0 = "Source Code Pro:size=7;0"
+font-1 = "Material Design Icons:size=7;1"
 font-2= Weather Icons:size=8;1
 ;font-2 = "font\-logos:size=11;1"
 font-3 = fixed:pixelsize=6;1

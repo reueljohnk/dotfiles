@@ -119,9 +119,7 @@ bindsym $mod+0 workspace $ws10
 ##=================================================##
 # Assign Workspaces:
 for_window [class="Spotify"] move to workspace $ws10
-for_window [class="Opera"] move to workspace $ws2
 for_window [class="Thunar"] move to workspace $ws3
-for_window [class="Thunderbird"] move to workspace $ws9
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
