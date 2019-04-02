@@ -1,5 +1,5 @@
 * {
-   maincolor:        #2c27d8;
+   maincolor:        #faf9fc;
    highlight:        bold #C397D8;
    urgentcolor:      #e53714;
 
@@ -138,3 +138,4 @@ case-indicator {
    text-color:@maincolor;
    background-color:@blackwidget;
 }
+
