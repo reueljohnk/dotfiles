@@ -37,13 +37,14 @@ fi
 #exec xset +fp /home/reueljohn/.fonts &
 #exec xset fp rehash &
 exec thunar --daemon &
-exec nitrogen --restore &
-exec compton -b &
+exec ~/.fehbg &
+#exec compton -b &
 #exec ~/.config/scripts/dwmstatus.sh &
-exec ~/.config/scripts/polybarstart.sh &
+#exec ~/.config/scripts/polybarstart.sh &
 exec mpd &
 #exec awesome
 #exec startkde
+exec slstatus &
 exec dwm
 #exec i3
 #exec openbox-session

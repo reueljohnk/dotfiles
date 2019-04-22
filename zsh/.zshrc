@@ -1,4 +1,5 @@
 export BW_SESSION="/Qnea0Vime4NWgUz5NPZbUPlgd/SSKcO+6t24SPmKXYCneTkcTVT7YxiyZEWz9k2DdCgly0MEMiR96BkJV4WKA=="
+export PATH=$PATH:~/.config/scripts
 #Using antigen as plugin manager
 source /usr/share/zsh/share/antigen.zsh
 antigen use oh-my-zsh
@@ -26,7 +27,7 @@ compinit
 #Aliases
 alias vim="nvim"
 alias v="nvim"
-alias dc="nvim $HOME/.config/dwm/config.h"
+alias dc="cd $HOME/.config/dwm/"
 alias zc="nvim ~/.zshrc"
 alias sc="nvim $HOME/.config/st/config.h"
 alias pbc="nvim $HOME/.config/polybar/config"
@@ -43,8 +44,10 @@ alias clera="clear"
 alias clerw="clear"
 alias c;ear="clear"
 alias gcloud="ssh reuel_johnk_ug20@34.73.152.202"
+alias fullclean='make clean && rm -f config.h && git reset --hard origin/master'
 
 function c(){
 	objFile=$(echo $1 | sed "s/\.c//g");
 	gcc -g -o $objFile $1;
 }
+
