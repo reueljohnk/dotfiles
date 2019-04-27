@@ -139,7 +139,7 @@ hide_duplicate_count = false
 show_indicators = no
 
 # Align icons left/right/off
-icon_position = off
+icon_position = left
 
 # Scale larger icons down to this size, set to 0 to disable
 max_icon_size = 32
@@ -158,7 +158,7 @@ history_length = 20
 dmenu = rofi -dmenu -p dunst
 
 # Browser for opening urls in context menu.
-browser = chromium
+browser = firefox
 
 # Always run rule-defined scripts, even if the notification is suppressed
 always_run_script = true
